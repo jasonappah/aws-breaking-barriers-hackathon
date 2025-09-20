@@ -5,7 +5,7 @@ services:
     image: postgres
     container_name: web-postgres
     environment:
-      POSTGRES_DB: web
+      POSTGRES_DB: postgres
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
     ports:
