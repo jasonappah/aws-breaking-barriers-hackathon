@@ -7,30 +7,36 @@
     "packages/*"
   ],
   "scripts": {
-    "check": "biome check --write .",
-    "prepare": "husky",
-    "ruler:apply": "npx @intellectronica/ruler@latest apply --local-only",
-    "dev": "turbo dev",
     "build": "turbo build",
+    "check": "biome check --write .",
     "check-types": "turbo check-types",
-    "dev:native": "turbo -F native dev",
-    "dev:web": "turbo -F web dev",
-    "dev:server": "turbo -F server dev",
-    "db:push": "turbo -F server db:push",
-    "db:studio": "turbo -F server db:studio",
+    "db:down": "turbo -F server db:down",
     "db:generate": "turbo -F server db:generate",
     "db:migrate": "turbo -F server db:migrate",
+    "db:push": "turbo -F server db:push",
     "db:start": "turbo -F server db:start",
-    "db:watch": "turbo -F server db:watch",
     "db:stop": "turbo -F server db:stop",
-    "db:down": "turbo -F server db:down"
+    "db:studio": "turbo -F server db:studio",
+    "db:watch": "turbo -F server db:watch",
+    "dev": "turbo dev",
+    "dev:native": "turbo -F native dev",
+    "dev:server": "turbo -F server dev",
+    "dev:web": "turbo -F web dev",
+    "prepare": "husky",
+    "ruler:apply": "npx @intellectronica/ruler@latest apply --local-only",
+    "sst": "sst",
+    "sst:build": "sst build",
+    "sst:dev": "sst dev",
+    "sst:remove": "sst remove"
   },
   "dependencies": {},
   "devDependencies": {
-    "turbo": "^2.5.4",
     "@biomejs/biome": "^2.2.0",
+    "@types/aws-lambda": "8.10.152",
     "husky": "^9.1.7",
-    "lint-staged": "^16.1.2"
+    "lint-staged": "^16.1.2",
+    "sst": "^3.17.13",
+    "turbo": "^2.5.4"
   },
   "lint-staged": {
     "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
