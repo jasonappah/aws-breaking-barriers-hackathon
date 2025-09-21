@@ -1,31 +1,36 @@
 import { publicProcedure } from "@/lib/orpc";
 import z from "zod";
+import { db } from "../db";
+import { site } from "../db/schema/sites";
+import { eq } from "drizzle-orm";
 
 const SiteIdentifier = z.object({
-    id: z.string()
+    id: z.number(),
 });
 
-const TowerTypes = {
-    "monopole": "Monopole",
-
-}
-
-const BackhaulOptions = {
-    "microwave": "Microwave",
-    "fiber": "Fiber",
-    "radio": "Radio",
-    "satellite": "Satellite",
-}
+const NewSiteInput = z.object({
+    name: z.string().min(1).optional(),
+    address: z.string().min(1).optional(),
+    latitude: z.number(),
+    longitude: z.number(),
+});
 
 export const sitesRouter = {
-    create: publicProcedure.input().handler(async ({ input }) => {
-        // TODO: Implement
+    create: publicProcedure.input(NewSiteInput).handler(async ({ input }) => {
+        const [created] = await db.insert(site).values({
+            name: input.name,
+            address: input.address,
+            latitude: input.latitude,
+            longitude: input.longitude,
+        }).returning();
+        return created;
     }),
     getById: publicProcedure.input(SiteIdentifier).handler(async ({ input }) => {
-        // TODO: Implement
+        const rows = await db.select().from(site).where(eq(site.id, input.id)).limit(1);
+        return rows[0] ?? null;
     }),
     getAll: publicProcedure.handler(async () => {
-        // TODO: Implement
+        return await db.select().from(site);
     }),
     research: {
         zoning: publicProcedure.input(SiteIdentifier).handler(async ({ input }) => {
@@ -42,6 +47,10 @@ export const sitesRouter = {
         }),
         networkBackhaulOptions: publicProcedure.input(SiteIdentifier).handler(async ({ input }) => {
             // TODO: see whether microwave is an option based on proximity to existing sites
+
+            const distanceToNearestTower = 0
+
+            return distanceToNearestTower < 1000 ? "microwave" : "fiber";
         }),
     }
 };

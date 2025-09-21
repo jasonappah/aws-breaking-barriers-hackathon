@@ -5,10 +5,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import { AlertTriangle, BookOpen, Gavel, MapPin, Search, Sparkles, Zap } from "lucide-react";
+import { AlertTriangle, BookOpen, Gavel, MapPin, Search, Zap } from "lucide-react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
-export const Route = createFileRoute("/research-site")({
+export const Route = createFileRoute("/research-site/$siteId")({
 	component: ResearcherRouteComponent,
 });
 
@@ -16,10 +16,8 @@ type EnvironmentType = "urban" | "suburban" | "rural";
 type GridAccess = "yes" | "no" | "unknown";
 type PowerService = "single" | "three" | "unknown";
 
-function ResearcherRouteComponent() {
-	const [address, setAddress] = useState("");
-	const [latitude, setLatitude] = useState("");
-	const [longitude, setLongitude] = useState("");
+export function ResearcherRouteComponent() {
+	// Site is created from Infra modal; focus on research inputs here
 	const [environment, setEnvironment] = useState<EnvironmentType>("urban");
 	const [targetHeight, setTargetHeight] = useState<string>("45");
 	const [issueQuery, setIssueQuery] = useState("cellular outages, dropped calls, coverage complaints");
@@ -104,55 +102,11 @@ function ResearcherRouteComponent() {
 		<div className="h-full grid grid-cols-[320px_1fr_360px]">
 			<aside className="border-r p-3 overflow-y-auto">
 				<div className="sticky top-0 bg-background z-10 pb-3">
-					<h2 className="text-base font-semibold flex items-center gap-2"><Search className="h-4 w-4" />Site inputs</h2>
+					<h2 className="text-base font-semibold flex items-center gap-2"><Search className="h-4 w-4" />Research inputs</h2>
 				</div>
 
-				<div className="grid gap-3">
-					<div>
-						<Label htmlFor="address">Address or description</Label>
-						<Input id="address" placeholder="123 Main St, Dallas TX" value={address} onChange={(e) => setAddress(e.target.value)} />
-					</div>
-					<div className="grid grid-cols-2 gap-2">
-						<div>
-							<Label htmlFor="lat">Latitude</Label>
-							<Input id="lat" placeholder="32.7767" value={latitude} onChange={(e) => setLatitude(e.target.value)} />
-						</div>
-						<div>
-							<Label htmlFor="lng">Longitude</Label>
-							<Input id="lng" placeholder="-96.7970" value={longitude} onChange={(e) => setLongitude(e.target.value)} />
-						</div>
-					</div>
-					<div className="grid grid-cols-2 gap-2 items-end">
-						<div>
-							<div className="text-sm font-medium">Environment</div>
-							<DropdownMenu>
-								<DropdownMenuTrigger asChild>
-									<Button variant="outline" className="w-full justify-between">
-										<span className="capitalize">{environment}</span>
-										<span aria-hidden>▾</span>
-									</Button>
-								</DropdownMenuTrigger>
-								<DropdownMenuContent className="w-[200px]">
-									<DropdownMenuRadioGroup value={environment} onValueChange={(v) => setEnvironment(v as EnvironmentType)}>
-										<DropdownMenuRadioItem value="urban">Urban</DropdownMenuRadioItem>
-										<DropdownMenuRadioItem value="suburban">Suburban</DropdownMenuRadioItem>
-										<DropdownMenuRadioItem value="rural">Rural</DropdownMenuRadioItem>
-									</DropdownMenuRadioGroup>
-								</DropdownMenuContent>
-							</DropdownMenu>
-						</div>
-						<div>
-							<Label htmlFor="height">Target height (m)</Label>
-							<Input id="height" type="number" min="5" max="120" value={targetHeight} onChange={(e) => setTargetHeight(e.target.value)} />
-						</div>
-					</div>
-					<div>
-						<Label htmlFor="jurisdiction">Zoning jurisdiction (optional)</Label>
-						<Input id="jurisdiction" placeholder="City of Dallas, TX" />
-					</div>
-					<Button className="w-full mt-1" variant="default">
-						<Sparkles className="h-4 w-4 mr-1" />Research site
-					</Button>
+				<div className="grid gap-3 text-sm text-muted-foreground">
+					<p>To create a new site, open Infra and use the plus button. This page is for researching an existing site.</p>
 				</div>
 			</aside>
 
