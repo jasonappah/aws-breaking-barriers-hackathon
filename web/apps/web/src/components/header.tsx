@@ -5,8 +5,8 @@ import UserMenu from "./user-menu";
 export default function Header() {
 	const links = [
 		{ to: "/", label: "Home" },
-		{ to: "/dashboard", label: "Dashboard" },
-        { to: "/todos", label: "Todos" },
+		// { to: "/dashboard", label: "Dashboard" },
+        // { to: "/todos", label: "Todos" },
         { to: "/infra", label: "Infra" },
         { to: "/event-report", label: "Event Report" },
 	] as const;
