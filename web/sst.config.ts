@@ -15,6 +15,7 @@ export default $config({
 				name: "swarm.jasonaa.me",
 				aliases: ["*.swarm.jasonaa.me"],
 				dns: sst.cloudflare.dns(),
+                cert: "arn:aws:acm:us-east-1:748325219098:certificate/e8761621-1692-4b35-ba37-8dc66c0dfe46"
 			},
 		});
 		const vpc = new sst.aws.Vpc("Vpc", { bastion: true, nat: "ec2" });
