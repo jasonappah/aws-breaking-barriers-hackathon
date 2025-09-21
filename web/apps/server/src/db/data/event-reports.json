@@ -11,7 +11,8 @@
       "nearbyCriticalFacilities": "El Camino Hospital, Sunnyvale Fire Station 2, Fremont High School",
       "weather": "Heavy rain, 52°F",
       "trafficDensity": "Heavy",
-      "roadClosures": "Full closure - Lawrence Expressway blocked"
+      "roadClosures": "Full closure - Lawrence Expressway blocked",
+      "address": "1234 Lawrence Expressway, Sunnyvale, CA 94087"
     },
     {
       "event": "Secondary landslide triggered by initial event",
@@ -24,7 +25,8 @@
       "nearbyCriticalFacilities": "El Camino Hospital, Sunnyvale Fire Station 2, Fremont High School",
       "weather": "Heavy rain, 50°F",
       "trafficDensity": "Heavy",
-      "roadClosures": "Full closure - additional debris"
+      "roadClosures": "Full closure - additional debris",
+      "address": "1256 Lawrence Expressway, Sunnyvale, CA 94087"
     },
     {
       "event": "Utility infrastructure damage from landslide",
@@ -37,7 +39,8 @@
       "nearbyCriticalFacilities": "El Camino Hospital, Sunnyvale Fire Station 2, Fremont High School",
       "weather": "Heavy rain, 49°F",
       "trafficDensity": "Heavy",
-      "roadClosures": "Full closure - utility work required"
+      "roadClosures": "Full closure - utility work required",
+      "address": "1280 Lawrence Expressway, Sunnyvale, CA 94087"
     }
   ],
   "metadata": {
@@ -55,7 +58,8 @@
       "nearbyCriticalFacilities": "string - Nearby critical facilities",
       "weather": "string - Weather conditions",
       "trafficDensity": "string - Traffic density level",
-      "roadClosures": "string - Road closure status"
+      "roadClosures": "string - Road closure status",
+      "address": "string - Physical address where event occurred"
     }
   }
 }
