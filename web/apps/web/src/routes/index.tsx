@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { orpc } from "@/utils/orpc"
 import { useQuery } from "@tanstack/react-query"
+import { MapPin, Activity, Radio } from "lucide-react"
 
 export const Route = createFileRoute("/")({
   component: HomeComponent,
@@ -43,24 +44,24 @@ function HomeComponent() {
 
       {/* Content Placeholder Sections */}
       <section className="container mx-auto max-w-4xl px-6 pb-16">
-        <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
           <div className="bg-card rounded-xl border border-border p-6 text-center">
             <div className="w-12 h-12 bg-primary/10 rounded-lg mx-auto mb-4 flex items-center justify-center">
-              <div className="w-6 h-6 bg-primary/20 rounded"></div>
+              <MapPin className="w-6 h-6 text-primary" />
             </div>
             <h3 className="font-semibold text-foreground mb-2">Crisis Heatmap</h3>
           </div>
 
           <div className="bg-card rounded-xl border border-border p-6 text-center">
             <div className="w-12 h-12 bg-primary/10 rounded-lg mx-auto mb-4 flex items-center justify-center">
-              <div className="w-6 h-6 bg-primary/20 rounded"></div>
+              <Activity className="w-6 h-6 text-primary" />
             </div>
             <h3 className="font-semibold text-foreground mb-2">AI Network Load Management</h3>
           </div>
 
           <div className="bg-card rounded-xl border border-border p-6 text-center">
             <div className="w-12 h-12 bg-primary/10 rounded-lg mx-auto mb-4 flex items-center justify-center">
-              <div className="w-6 h-6 bg-primary/20 rounded"></div>
+              <Radio className="w-6 h-6 text-primary" />
             </div>
             <h3 className="font-semibold text-foreground mb-2">Smart Dispatch Channels</h3>
           </div>
