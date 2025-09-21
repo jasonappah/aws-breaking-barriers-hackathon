@@ -40,6 +40,7 @@ export default $config({
 			link: [rds],
 			vpc,
 		});
+		const mapboxToken = new sst.Secret("MapBoxToken");
 		const web = new sst.aws.StaticSite("web", {
 			path: "apps/web",
 			dev: {
@@ -55,6 +56,7 @@ export default $config({
 			},
 			environment: {
 				VITE_SERVER_URL: server.url,
+				VITE_MAPBOX_TOKEN: mapboxToken
 			},
 		});
 		new sst.x.DevCommand("Studio", {
