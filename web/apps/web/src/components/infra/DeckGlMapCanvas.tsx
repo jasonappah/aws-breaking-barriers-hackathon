@@ -8,10 +8,10 @@ import { orpc } from '@/utils/orpc';
 import { useQuery } from "@tanstack/react-query";
 
 const fileList = [
-    // "us_data/us_310.geojson",
-    // "us_data/us_311.geojson",
-    // "us_data/us_312.geojson",
-    // "us_data/us_313.geojson",
+    "us_data/us_310_split_part1.geojson",
+    "us_data/us_311_split_part2.geojson",
+    "us_data/us_312.geojson",
+    "us_data/us_313.geojson",
     "us_data/us_314.geojson"
 ]
 
