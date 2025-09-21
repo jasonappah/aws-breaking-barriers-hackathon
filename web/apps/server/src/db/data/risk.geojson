@@ -1,0 +1,56 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "landslide-001",
+        "event": "Major landslide on hillside near Lawrence Expressway",
+        "severity": "Critical",
+        "radius": 1.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-122.0363, 37.3688], [-122.0358, 37.3693], [-122.0348, 37.3695], [-122.0338, 37.3693],
+          [-122.0333, 37.3688], [-122.0333, 37.3683], [-122.0338, 37.3678], [-122.0348, 37.3676],
+          [-122.0358, 37.3678], [-122.0363, 37.3683], [-122.0363, 37.3688]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "landslide-002",
+        "event": "Secondary landslide triggered by initial event",
+        "severity": "High",
+        "radius": 1.5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-122.0353, 37.3698], [-122.0348, 37.3703], [-122.0338, 37.3705], [-122.0328, 37.3703],
+          [-122.0323, 37.3698], [-122.0323, 37.3693], [-122.0328, 37.3688], [-122.0338, 37.3686],
+          [-122.0348, 37.3688], [-122.0353, 37.3693], [-122.0353, 37.3698]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "utility-damage-001",
+        "event": "Utility infrastructure damage from landslide",
+        "severity": "High",
+        "radius": 2.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-122.0368, 37.3683], [-122.0363, 37.3688], [-122.0353, 37.3690], [-122.0343, 37.3688],
+          [-122.0338, 37.3683], [-122.0338, 37.3678], [-122.0343, 37.3673], [-122.0353, 37.3671],
+          [-122.0363, 37.3673], [-122.0368, 37.3678], [-122.0368, 37.3683]
+        ]]
+      }
+    }
+  ]
+}

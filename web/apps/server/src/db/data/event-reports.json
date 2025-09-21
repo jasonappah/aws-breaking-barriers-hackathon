@@ -1,0 +1,61 @@
+{
+  "eventReports": [
+    {
+      "event": "Major landslide on hillside near Lawrence Expressway in Sunnyvale",
+      "date": "2024-01-15",
+      "time": "14:30",
+      "severity": "Critical",
+      "sourceOfReport": "Geological monitoring station",
+      "structureType": "Hillside slope",
+      "surroundingLand": "Residential hillside",
+      "nearbyCriticalFacilities": "El Camino Hospital, Sunnyvale Fire Station 2, Fremont High School",
+      "weather": "Heavy rain, 52°F",
+      "trafficDensity": "Heavy",
+      "roadClosures": "Full closure - Lawrence Expressway blocked"
+    },
+    {
+      "event": "Secondary landslide triggered by initial event",
+      "date": "2024-01-15",
+      "time": "15:45",
+      "severity": "High",
+      "sourceOfReport": "Emergency response team on scene",
+      "structureType": "Hillside slope",
+      "surroundingLand": "Residential hillside",
+      "nearbyCriticalFacilities": "El Camino Hospital, Sunnyvale Fire Station 2, Fremont High School",
+      "weather": "Heavy rain, 50°F",
+      "trafficDensity": "Heavy",
+      "roadClosures": "Full closure - additional debris"
+    },
+    {
+      "event": "Utility infrastructure damage from landslide",
+      "date": "2024-01-15",
+      "time": "16:20",
+      "severity": "High",
+      "sourceOfReport": "PG&E infrastructure monitoring",
+      "structureType": "Utility infrastructure",
+      "surroundingLand": "Residential hillside",
+      "nearbyCriticalFacilities": "El Camino Hospital, Sunnyvale Fire Station 2, Fremont High School",
+      "weather": "Heavy rain, 49°F",
+      "trafficDensity": "Heavy",
+      "roadClosures": "Full closure - utility work required"
+    }
+  ],
+  "metadata": {
+    "totalReports": 3,
+    "lastUpdated": "2024-01-15T14:30:00Z",
+    "version": "1.0",
+    "formFields": {
+      "event": "string - Event description (required)",
+      "date": "string - Date in YYYY-MM-DD format (required)",
+      "time": "string - Time in HH:MM format (required)",
+      "severity": "string - Severity level (required)",
+      "sourceOfReport": "string - Who reported the event (required)",
+      "structureType": "string - Type of infrastructure",
+      "surroundingLand": "string - Land use type",
+      "nearbyCriticalFacilities": "string - Nearby critical facilities",
+      "weather": "string - Weather conditions",
+      "trafficDensity": "string - Traffic density level",
+      "roadClosures": "string - Road closure status"
+    }
+  }
+}
