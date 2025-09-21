@@ -1,0 +1,833 @@
+{
+	"type": "FeatureCollection",
+	"features": [
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-77.3997, 36.9576] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 30,
+				"area": 1,
+				"cell": 68445885,
+				"unit": -1,
+				"range": 53896,
+				"samples": 46,
+				"changeable": 1,
+				"created": 1701507819,
+				"updated": 1740278431,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-123.1182, 38.4494] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 280,
+				"area": 13,
+				"cell": 61698,
+				"unit": -1,
+				"range": 911,
+				"samples": 30,
+				"changeable": 1,
+				"created": 1700943415,
+				"updated": 1739314573,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-123.1168, 38.4483] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 280,
+				"area": 13,
+				"cell": 61697,
+				"unit": -1,
+				"range": 1000,
+				"samples": 17,
+				"changeable": 1,
+				"created": 1707831594,
+				"updated": 1739323385,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-118.3209, 33.3484] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 30,
+				"area": 1,
+				"cell": 139753126,
+				"unit": -1,
+				"range": 1000,
+				"samples": 3,
+				"changeable": 1,
+				"created": 1718399029,
+				"updated": 1718430074,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-110.8256, 44.4582] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 30,
+				"area": 1,
+				"cell": 5,
+				"unit": -1,
+				"range": 1000,
+				"samples": 2,
+				"changeable": 1,
+				"created": 1726054952,
+				"updated": 1726097763,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-110.8255, 44.4579] },
+			"properties": {
+				"radio": "UMTS",
+				"mcc": 314,
+				"mnc": 30,
+				"area": 126,
+				"cell": 151683,
+				"unit": 3,
+				"range": 1000,
+				"samples": 1,
+				"changeable": 1,
+				"created": 1726055042,
+				"updated": 1726055042,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-77.3553, 38.3949] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 30,
+				"area": 1,
+				"cell": 135986830,
+				"unit": -1,
+				"range": 1000,
+				"samples": 13,
+				"changeable": 1,
+				"created": 1727511144,
+				"updated": 1727557149,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-77.4406, 38.3251] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 30,
+				"area": 1,
+				"cell": 135986856,
+				"unit": -1,
+				"range": 10769,
+				"samples": 51,
+				"changeable": 1,
+				"created": 1727511224,
+				"updated": 1727557293,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-78.2289, 36.6717] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 30,
+				"area": 1,
+				"cell": 138403799,
+				"unit": -1,
+				"range": 3980,
+				"samples": 51,
+				"changeable": 1,
+				"created": 1728711901,
+				"updated": 1728783074,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-77.8125, 36.8827] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 30,
+				"area": 1,
+				"cell": 138403798,
+				"unit": -1,
+				"range": 32691,
+				"samples": 7,
+				"changeable": 1,
+				"created": 1728667071,
+				"updated": 1741133294,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-78.3287, 36.6803] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 30,
+				"area": 1,
+				"cell": 67889582,
+				"unit": -1,
+				"range": 5749,
+				"samples": 50,
+				"changeable": 1,
+				"created": 1728713839,
+				"updated": 1728783067,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-78.5516, 36.6482] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 30,
+				"area": 1,
+				"cell": 135987468,
+				"unit": -1,
+				"range": 2250,
+				"samples": 51,
+				"changeable": 1,
+				"created": 1728714999,
+				"updated": 1728783069,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-78.5689, 36.6226] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 30,
+				"area": 1,
+				"cell": 67262081,
+				"unit": -1,
+				"range": 1000,
+				"samples": 23,
+				"changeable": 1,
+				"created": 1728715339,
+				"updated": 1728783070,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-78.7552, 36.6272] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 30,
+				"area": 1,
+				"cell": 135987469,
+				"unit": -1,
+				"range": 1000,
+				"samples": 7,
+				"changeable": 1,
+				"created": 1728717249,
+				"updated": 1728783121,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-78.4114, 37.3061] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 30,
+				"area": 1,
+				"cell": 139755352,
+				"unit": -1,
+				"range": 13222,
+				"samples": 51,
+				"changeable": 1,
+				"created": 1731171031,
+				"updated": 1749954473,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-77.3759, 38.5094] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 330,
+				"area": 1,
+				"cell": 651046,
+				"unit": -1,
+				"range": 9507,
+				"samples": 48,
+				"changeable": 1,
+				"created": 1731739211,
+				"updated": 1731795537,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-74.3017, 40.6284] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 330,
+				"area": 1,
+				"cell": 641818,
+				"unit": -1,
+				"range": 9600,
+				"samples": 50,
+				"changeable": 1,
+				"created": 1733495873,
+				"updated": 1733694482,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-77.5664, 39.0716] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 330,
+				"area": 1,
+				"cell": 2710288,
+				"unit": -1,
+				"range": 8710,
+				"samples": 51,
+				"changeable": 1,
+				"created": 1734953946,
+				"updated": 1734991106,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-94.3177, 38.2558] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 350,
+				"area": 25868,
+				"cell": 88084502,
+				"unit": 0,
+				"range": 1000,
+				"samples": 1,
+				"changeable": 1,
+				"created": 1735569376,
+				"updated": 1735569376,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-80.1766, 25.7777] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 330,
+				"area": 1,
+				"cell": 2711304,
+				"unit": -1,
+				"range": 1000,
+				"samples": 2,
+				"changeable": 1,
+				"created": 1740306671,
+				"updated": 1740964508,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-105.2307, 39.7058] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 480,
+				"area": 1,
+				"cell": 26121,
+				"unit": -1,
+				"range": 1000,
+				"samples": 1,
+				"changeable": 1,
+				"created": 1744455996,
+				"updated": 1744455996,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-94.2641, 38.3212] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 350,
+				"area": 1,
+				"cell": 36421232,
+				"unit": 0,
+				"range": 1000,
+				"samples": 1,
+				"changeable": 1,
+				"created": 1744683599,
+				"updated": 1744683599,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-94.6806, 39.0815] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 30,
+				"area": 1,
+				"cell": 137248782,
+				"unit": 0,
+				"range": 1000,
+				"samples": 1,
+				"changeable": 1,
+				"created": 1748216905,
+				"updated": 1748216905,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-89.7641, 30.6857] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 400,
+				"area": 23,
+				"cell": 102601220,
+				"unit": 0,
+				"range": 1000,
+				"samples": 1,
+				"changeable": 1,
+				"created": 1749063951,
+				"updated": 1749063951,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-89.7676, 30.6374] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 400,
+				"area": 23,
+				"cell": 102601219,
+				"unit": 0,
+				"range": 13435,
+				"samples": 17,
+				"changeable": 1,
+				"created": 1749063973,
+				"updated": 1755031921,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-89.7724, 30.6563] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 400,
+				"area": 23,
+				"cell": 102601222,
+				"unit": 0,
+				"range": 1804,
+				"samples": 4,
+				"changeable": 1,
+				"created": 1749064557,
+				"updated": 1755031741,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-104.9407, 39.6099] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 480,
+				"area": 1,
+				"cell": 26380,
+				"unit": -1,
+				"range": 1000,
+				"samples": 1,
+				"changeable": 1,
+				"created": 1751702031,
+				"updated": 1751702031,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-89.7538, 30.596] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 400,
+				"area": 23,
+				"cell": 102620690,
+				"unit": 0,
+				"range": 8040,
+				"samples": 6,
+				"changeable": 1,
+				"created": 1752001450,
+				"updated": 1755032041,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-89.7315, 30.5757] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 400,
+				"area": 23,
+				"cell": 102644995,
+				"unit": 0,
+				"range": 4020,
+				"samples": 10,
+				"changeable": 1,
+				"created": 1752001462,
+				"updated": 1755032221,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-89.763, 30.6163] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 400,
+				"area": 23,
+				"cell": 102620688,
+				"unit": 0,
+				"range": 5631,
+				"samples": 12,
+				"changeable": 1,
+				"created": 1752001570,
+				"updated": 1755031921,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-89.7661, 30.6244] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 400,
+				"area": 23,
+				"cell": 102620676,
+				"unit": 0,
+				"range": 4685,
+				"samples": 5,
+				"changeable": 1,
+				"created": 1752001720,
+				"updated": 1755031921,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-89.7735, 30.6362] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 400,
+				"area": 23,
+				"cell": 102601234,
+				"unit": 0,
+				"range": 1000,
+				"samples": 1,
+				"changeable": 1,
+				"created": 1752001737,
+				"updated": 1752001737,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-89.766, 30.6309] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 400,
+				"area": 23,
+				"cell": 102620678,
+				"unit": 0,
+				"range": 3993,
+				"samples": 2,
+				"changeable": 1,
+				"created": 1752006426,
+				"updated": 1755031981,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-89.7192, 30.5653] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 400,
+				"area": 23,
+				"cell": 102644998,
+				"unit": 0,
+				"range": 2319,
+				"samples": 2,
+				"changeable": 1,
+				"created": 1752006656,
+				"updated": 1755032281,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-89.7416, 30.5732] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 400,
+				"area": 23,
+				"cell": 102644994,
+				"unit": 0,
+				"range": 1000,
+				"samples": 1,
+				"changeable": 1,
+				"created": 1752006716,
+				"updated": 1752006716,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-89.7416, 30.5732] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 400,
+				"area": 23,
+				"cell": 102644997,
+				"unit": 0,
+				"range": 1000,
+				"samples": 1,
+				"changeable": 1,
+				"created": 1752006896,
+				"updated": 1752006896,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-89.7416, 30.5732] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 400,
+				"area": 23,
+				"cell": 102631170,
+				"unit": 0,
+				"range": 1000,
+				"samples": 1,
+				"changeable": 1,
+				"created": 1752007046,
+				"updated": 1752007046,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-78.7002, 38.6252] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 30,
+				"area": 1,
+				"cell": 67447358,
+				"unit": -1,
+				"range": 27475,
+				"samples": 49,
+				"changeable": 1,
+				"created": 1754120789,
+				"updated": 1754418994,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-104.9793, 39.6187] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 480,
+				"area": 1,
+				"cell": 26638,
+				"unit": -1,
+				"range": 1000,
+				"samples": 1,
+				"changeable": 1,
+				"created": 1754549856,
+				"updated": 1754549856,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-89.7224, 30.5676] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 400,
+				"area": 23,
+				"cell": 102645010,
+				"unit": 0,
+				"range": 1610,
+				"samples": 6,
+				"changeable": 1,
+				"created": 1755032067,
+				"updated": 1755032221,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-104.9266, 38.9861] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 480,
+				"area": 1,
+				"cell": 26120,
+				"unit": -1,
+				"range": 1000,
+				"samples": 1,
+				"changeable": 1,
+				"created": 1756471209,
+				"updated": 1756471209,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-94.333, 38.2575] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 350,
+				"area": 1,
+				"cell": 36416879,
+				"unit": 0,
+				"range": 1000,
+				"samples": 1,
+				"changeable": 1,
+				"created": 1756553547,
+				"updated": 1756553547,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-74.9995, 40.048] },
+			"properties": {
+				"radio": "NR",
+				"mcc": 314,
+				"mnc": 200,
+				"area": 1006,
+				"cell": 29337979658,
+				"unit": -1,
+				"range": 1000,
+				"samples": 6,
+				"changeable": 1,
+				"created": 1757151186,
+				"updated": 1757190430,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-75.0068, 40.0399] },
+			"properties": {
+				"radio": "NR",
+				"mcc": 314,
+				"mnc": 200,
+				"area": 1006,
+				"cell": 29337734154,
+				"unit": -1,
+				"range": 1000,
+				"samples": 6,
+				"changeable": 1,
+				"created": 1757151226,
+				"updated": 1757190430,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-75.0098, 40.0386] },
+			"properties": {
+				"radio": "NR",
+				"mcc": 314,
+				"mnc": 200,
+				"area": 1006,
+				"cell": 29337913226,
+				"unit": -1,
+				"range": 1000,
+				"samples": 6,
+				"changeable": 1,
+				"created": 1757151236,
+				"updated": 1757190430,
+				"averagesignal": 0
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": { "type": "Point", "coordinates": [-88.0229, 31.0115] },
+			"properties": {
+				"radio": "LTE",
+				"mcc": 314,
+				"mnc": 90,
+				"area": 1011,
+				"cell": 51023629,
+				"unit": -1,
+				"range": 1000,
+				"samples": 1,
+				"changeable": 1,
+				"created": 1758282499,
+				"updated": 1758282499,
+				"averagesignal": 0
+			}
+		}
+	]
+}

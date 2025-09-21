@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import MapCanvas from "@/components/infra/MapCanvas";
+import DeckGlMapCanvas from "@/components/infra/DeckGlMapCanvas";
 
 export const Route = createFileRoute("/infra")({
     component: RouteComponent,
@@ -24,7 +24,7 @@ function RouteComponent() {
             </aside>
             <main className="relative">
                 <div className="absolute inset-0 border-x">
-                    <MapCanvas />
+                    <DeckGlMapCanvas />
                 </div>
             </main>
             <aside className="border-l p-2 overflow-y-auto">
