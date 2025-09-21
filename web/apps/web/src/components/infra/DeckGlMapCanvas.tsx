@@ -17,7 +17,12 @@ const fileList = [
 
 const epochToISO = (x?: number) => (x ? new Date(Number(x) * 1000).toISOString() : "—");
 
-function App() {
+interface DeckGlMapCanvasProps {
+    crisisMode?: boolean;
+    crisisData?: any;
+}
+
+function App({ crisisMode = false, crisisData }: DeckGlMapCanvasProps = {}) {
     const token = useMemo(() => import.meta.env.VITE_MAPBOX_TOKEN as string, []);
 
     const getTooltip = useCallback(({object}: PickingInfo) => {
@@ -37,7 +42,9 @@ function App() {
         };
       }, []);
 
-    const riskData = useQuery(orpc.risk.getDummyData.queryOptions());
+    // Temporarily disable risk data query to avoid database errors
+    // const riskData = useQuery(orpc.risk.getDummyData.queryOptions());
+    const riskData = { data: null };
 
     // Map a severity string/number to an RGBA color (alpha 0-255)
     const severityToColor = (severity: any, forLine = false) => {
@@ -67,10 +74,13 @@ function App() {
 
         const layers: any[] = [...base];
 
-        if (riskData.data) {
+        // Use crisis data if available, otherwise fall back to default risk data
+        const riskLayerData = crisisMode && crisisData ? crisisData.risk : riskData.data;
+        
+        if (riskLayerData) {
             layers.push(new GeoJsonLayer({
                 id: 'risk',
-                data: riskData.data,
+                data: riskLayerData,
                 pickable: true,
                 filled: true,
                 stroked: true,
@@ -81,8 +91,30 @@ function App() {
             }));
         }
 
+        // Add heat points if crisis data is available
+        if (crisisMode && crisisData?.heat) {
+            layers.push(new GeoJsonLayer({
+                id: 'heat-points',
+                data: crisisData.heat,
+                pickable: true,
+                filled: true,
+                stroked: false,
+                getFillColor: (feature: any) => {
+                    const severity = feature?.properties?.severity;
+                    const weight = feature?.properties?.weight || 0.5;
+                    const baseColor = severityToColor(severity, false);
+                    // Adjust alpha based on weight
+                    return [baseColor[0], baseColor[1], baseColor[2], Math.floor(baseColor[3] * weight)];
+                },
+                getPointRadius: (feature: any) => {
+                    const weight = feature?.properties?.weight || 0.5;
+                    return 20 + (weight * 30); // Radius between 20-50 based on weight
+                },
+            }));
+        }
+
         return layers;
-    }, [riskData.data]);
+    }, [riskData.data, crisisMode, crisisData]);
 
     return (
         <DeckGL

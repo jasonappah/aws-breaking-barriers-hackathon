@@ -1,13 +1,15 @@
 // web/apps/server/src/lib/impact.ts
-import { LocationClient, SearchPlaceIndexForTextCommand } from "@aws-sdk/client-location";
-import { BedrockRuntimeClient, InvokeModelCommand } from "@aws-sdk/client-bedrock-runtime";
+// Temporarily comment out AWS SDK imports to get server running
+// import { LocationClient, SearchPlaceIndexForTextCommand } from "@aws-sdk/client-location";
+// import { BedrockRuntimeClient, InvokeModelCommand } from "@aws-sdk/client-bedrock-runtime";
 
 const REGION = process.env.AWS_REGION ?? "us-west-2";
 const PLACE_INDEX_NAME = process.env.PLACE_INDEX_NAME ?? "CrisisPlaceIndex";
 const CLAUDE_MODEL = "anthropic.claude-3-5-sonnet-20240620";
 
-const location = new LocationClient({ region: REGION });
-const bedrock = new BedrockRuntimeClient({ region: REGION });
+// Temporarily mock AWS clients
+// const location = new LocationClient({ region: REGION });
+// const bedrock = new BedrockRuntimeClient({ region: REGION });
 
 // Reuse the same circle logic and units as web/scripts/convert.ts (km).  :contentReference[oaicite:4]{index=4}
 export function circlePolygon(centerLonLat: [number, number], radiusKm: number, points = 64) {
@@ -41,50 +43,15 @@ function weightFor(severity: string) {
 
 
 export async function geocode(address: string) {
-  const res = await location.send(new SearchPlaceIndexForTextCommand({
-    IndexName: PLACE_INDEX_NAME,
-    Text: address,
-    MaxResults: 1
-  }));
-  const pt = res.Results?.[0]?.Place?.Geometry?.Point; // [lon, lat]
-  if (!pt) throw new Error(`Could not geocode: ${address}`);
-  return { lon: pt[0], lat: pt[1] };
+  // Mock geocoding for now - return a default location
+  console.log(`Mock geocoding for address: ${address}`);
+  return { lon: -122.4194, lat: 37.7749 }; // San Francisco coordinates
 }
 
 export async function makeBrief(events: any[], meta: any, countPoints: number) {
-  const prompt = {
-    anthropic_version: "bedrock-2023-05-31",
-    max_tokens: 350,
-    temperature: 0.2,
-    messages: [{
-      role: "user",
-      content: [{
-        type: "text",
-        text: `You are an emergency operations analyst. Be concise and operational.
-Given these event reports and computed points, write a 6–8 sentence situation brief:
-- hazards, closures, threatened facilities
-- immediate safety actions
-- newest changes
-Plain English.
-
-<eventReports>
-${JSON.stringify(events, null, 2)}
-</eventReports>
-
-<riskSummary>
-${JSON.stringify(meta, null, 2)}, "points": ${countPoints}
-</riskSummary>`
-      }]
-    }]
-  };
-
-  const out = await bedrock.send(new InvokeModelCommand({
-    modelId: CLAUDE_MODEL, contentType: "application/json", accept: "application/json",
-    body: JSON.stringify(prompt)
-  }));
-
-  const body = JSON.parse(new TextDecoder().decode(out.body));
-  return body?.content?.[0]?.text ?? "";
+  // Mock AI brief for now
+  console.log(`Mock AI brief generation for ${events.length} events`);
+  return `Mock Crisis Brief: Analysis of ${events.length} events with ${countPoints} risk points identified. Critical infrastructure at risk. Immediate evacuation recommended for affected areas. Emergency services deployed. Weather conditions deteriorating.`;
 }
 
 export async function computeImpact(eventReports: any[]) {
