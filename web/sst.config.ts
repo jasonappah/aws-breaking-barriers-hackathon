@@ -10,18 +10,31 @@ export default $config({
 		};
 	},
 	async run() {
+		const router = new sst.aws.Router("MyRouter", {
+			domain: {
+				name: "swarm.jasonaa.me",
+				aliases: ["*.swarm.jasonaa.me"],
+			},
+		});
 		const vpc = new sst.aws.Vpc("Vpc", { bastion: true, nat: "ec2" });
-		const rds = new sst.aws.Postgres("Postgres", { vpc, proxy: true,
-            dev: {
-                username: "postgres",
-                password: "password",
-                database: "postgres",
-                port: 5432,
-              }
-         });
+		const rds = new sst.aws.Postgres("Postgres", {
+			vpc,
+			proxy: true,
+			dev: {
+				username: "postgres",
+				password: "password",
+				database: "postgres",
+				port: 5432,
+			},
+		});
 
 		const server = new sst.aws.Function("server", {
-			url: true,
+			url: {
+				router: {
+					instance: router,
+					domain: "api.swarm.jasonaa.me",
+				},
+			},
 			handler: "apps/server/src/lambda.handler",
 			link: [rds],
 			vpc,
@@ -30,22 +43,23 @@ export default $config({
 		const web = new sst.aws.StaticSite("web", {
 			path: "apps/web",
 			dev: {
-				command: "npm run dev"
+				command: "npm run dev",
 			},
 			build: {
 				command: "npm run build",
 				output: "dist",
 			},
+			domain: "swarm.jasonaa.me",
 			environment: {
 				VITE_SERVER_URL: server.url,
 			},
 		});
 
-        new sst.x.DevCommand("Studio", {
-            link: [rds],
-            dev: {
-              command: "npx drizzle-kit studio",
-            },
-          });
+		new sst.x.DevCommand("Studio", {
+			link: [rds],
+			dev: {
+				command: "npx drizzle-kit studio",
+			},
+		});
 	},
 });
