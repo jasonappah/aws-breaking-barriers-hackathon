@@ -38,38 +38,63 @@ function App() {
       }, []);
 
     const riskData = useQuery(orpc.risk.getDummyData.queryOptions());
+
+    // Map a severity string/number to an RGBA color (alpha 0-255)
+    const severityToColor = (severity: any, forLine = false) => {
+        // Accept numbers or strings like 'low'|'medium'|'high'|'critical'
+        const s = typeof severity === 'string' ? severity.toLowerCase() : severity;
+        // Colors: low -> light yellow, medium -> orange, high -> red
+        if (s === 'low') return forLine ? [255, 215, 0, 200] : [255, 255, 153, 100]; // pale yellow fill
+        if (s === 'high') return forLine ? [255, 87, 34, 200] : [255, 140, 0, 120]; // dark orange fill
+        if (s === 'critical') return forLine ? [220, 20, 60, 200] : [255, 80, 80, 120]; // red
+        // default / medium
+        return forLine ? [255, 200, 100, 180] : [255, 220, 160, 90]; // light orange
+    }
   
-  return (
+    const layers = useMemo(() => {
+        const base = fileList.map((file) => new GeoJsonLayer({
+            id: file,
+            data: file,
+            pickable: true,
+            getLineWidth: 20,
+            getPointRadius: 4,
+            filled: true,
+            stroked: true,
+            getFillColor: () => ([255, 140, 0, 120] as any),
+            getLineColor: () => ([255, 140, 0, 200] as any),
+            lineWidthScale: 1,
+        }));
+
+        const layers: any[] = [...base];
+
+        if (riskData.data) {
+            layers.push(new GeoJsonLayer({
+                id: 'risk',
+                data: riskData.data,
+                pickable: true,
+                filled: true,
+                stroked: true,
+                getFillColor: (feature: any) => (severityToColor(feature?.properties?.severity, false) as any),
+                getLineColor: (feature: any) => (severityToColor(feature?.properties?.severity, true) as any),
+                lineWidthScale: 1,
+                getPointRadius: 50,
+            }));
+        }
+
+        return layers;
+    }, [riskData.data]);
+
+    return (
         <DeckGL
-        initialViewState={{
-            longitude: -122.41669,
-            latitude: 37.7853,
-            zoom: 13
-        }}
-        controller
-        getTooltip={getTooltip}
-
+            initialViewState={{
+                longitude: -122.41669,
+                latitude: 37.7853,
+                zoom: 5
+            }}
+            controller
+            getTooltip={getTooltip}
+            layers={layers}
         >
-
-        {fileList.map((file) => (
-            <GeoJsonLayer 
-                key={file}
-                id={file}
-                data={file}
-                pickable
-                getLineWidth={20}
-                getPointRadius={4}
-
-            />
-        ))}
-        {riskData.data && <GeoJsonLayer 
-            id={'risk'}
-            data={riskData.data}
-            // pickable
-            // getLineWidth={20}
-            // getPointRadius={4}
-
-        />}
 
         <MapView id="map" width="100%" controller >
             <Map mapStyle="mapbox://styles/mapbox/light-v9" mapboxAccessToken={token} />
@@ -79,7 +104,7 @@ function App() {
 
         <ZoomWidget/>
         </DeckGL>
-  );
+    );
 }
 
 export default App;
