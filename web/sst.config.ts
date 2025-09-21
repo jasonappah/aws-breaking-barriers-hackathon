@@ -6,7 +6,9 @@ export default $config({
 			removal: input?.stage === "production" ? "retain" : "remove",
 			protect: ["production"].includes(input?.stage),
 			home: "aws",
-			providers: { cloudflare: "6.9.1" },
+			providers: { cloudflare: "6.9.1", aws: {
+				region: "us-east-2",
+			} },
 		};
 	},
 	async run() {
@@ -40,7 +42,6 @@ export default $config({
 			link: [rds],
 			vpc,
 		});
-		// const mapboxToken = new sst.Secret("MapBoxToken");
 		const web = new sst.aws.StaticSite("web", {
 			path: "apps/web",
 			dev: {
@@ -56,7 +57,7 @@ export default $config({
 			},
 			environment: {
 				VITE_SERVER_URL: server.url,
-				// VITE_MAPBOX_TOKEN: new sst.Secret("MapBoxToken").value,
+				VITE_MAPBOX_TOKEN: new sst.Secret("MapBoxToken").value,
 			},
 		});
 		new sst.x.DevCommand("Studio", {
