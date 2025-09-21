@@ -1,6 +1,8 @@
 import { protectedProcedure, publicProcedure } from "../lib/orpc";
 import type { RouterClient } from "@orpc/server";
 import { todoRouter } from "./todo";
+import { join } from "node:path";
+import { readFile } from "node:fs/promises";
 
 export const appRouter = {
 	healthCheck: publicProcedure.handler(() => {
@@ -12,6 +14,11 @@ export const appRouter = {
 			user: context.session?.user,
 		};
 	}),
+	risk: {
+		getDummyData: publicProcedure.handler(async () => {
+			return JSON.parse(await readFile(join(process.cwd(), "src/db/data/risk.geojson"), "utf8"));
+		}),
+	},
 	todo: todoRouter,
 };
 export type AppRouter = typeof appRouter;

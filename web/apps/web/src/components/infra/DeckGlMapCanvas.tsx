@@ -1,9 +1,11 @@
-import React, { useCallback, useMemo } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import {DeckGL} from '@deck.gl/react';
 import {FirstPersonView, MapView, type PickingInfo} from '@deck.gl/core';
 import {GeoJsonLayer, LineLayer} from '@deck.gl/layers';
 import {ZoomWidget} from '@deck.gl/react';
 import {Map} from 'react-map-gl/mapbox';
+import { orpc } from '@/utils/orpc';
+import { useQuery } from "@tanstack/react-query";
 
 const fileList = [
     // "us_data/us_310.geojson",
@@ -34,7 +36,9 @@ function App() {
         `
         };
       }, []);
-    
+
+    const riskData = useQuery(orpc.risk.getDummyData.queryOptions());
+  
   return (
         <DeckGL
         initialViewState={{
@@ -58,6 +62,14 @@ function App() {
 
             />
         ))}
+        {riskData.data && <GeoJsonLayer 
+            id={'risk'}
+            data={riskData.data}
+            // pickable
+            // getLineWidth={20}
+            // getPointRadius={4}
+
+        />}
 
         <MapView id="map" width="100%" controller >
             <Map mapStyle="mapbox://styles/mapbox/light-v9" mapboxAccessToken={token} />
