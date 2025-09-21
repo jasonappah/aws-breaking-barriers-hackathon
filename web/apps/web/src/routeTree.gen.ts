@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TodosRouteImport } from './routes/todos'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as InfraRouteImport } from './routes/infra'
+import { Route as EventReportRouteImport } from './routes/event-report'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -30,6 +31,11 @@ const InfraRoute = InfraRouteImport.update({
   path: '/infra',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EventReportRoute = EventReportRouteImport.update({
+  id: '/event-report',
+  path: '/event-report',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
@@ -44,6 +50,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/event-report': typeof EventReportRoute
   '/infra': typeof InfraRoute
   '/login': typeof LoginRoute
   '/todos': typeof TodosRoute
@@ -51,6 +58,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/event-report': typeof EventReportRoute
   '/infra': typeof InfraRoute
   '/login': typeof LoginRoute
   '/todos': typeof TodosRoute
@@ -59,21 +67,36 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/event-report': typeof EventReportRoute
   '/infra': typeof InfraRoute
   '/login': typeof LoginRoute
   '/todos': typeof TodosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard' | '/infra' | '/login' | '/todos'
+  fullPaths:
+    | '/'
+    | '/dashboard'
+    | '/event-report'
+    | '/infra'
+    | '/login'
+    | '/todos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard' | '/infra' | '/login' | '/todos'
-  id: '__root__' | '/' | '/dashboard' | '/infra' | '/login' | '/todos'
+  to: '/' | '/dashboard' | '/event-report' | '/infra' | '/login' | '/todos'
+  id:
+    | '__root__'
+    | '/'
+    | '/dashboard'
+    | '/event-report'
+    | '/infra'
+    | '/login'
+    | '/todos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DashboardRoute: typeof DashboardRoute
+  EventReportRoute: typeof EventReportRoute
   InfraRoute: typeof InfraRoute
   LoginRoute: typeof LoginRoute
   TodosRoute: typeof TodosRoute
@@ -102,6 +125,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InfraRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/event-report': {
+      id: '/event-report'
+      path: '/event-report'
+      fullPath: '/event-report'
+      preLoaderRoute: typeof EventReportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard': {
       id: '/dashboard'
       path: '/dashboard'
@@ -122,6 +152,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DashboardRoute: DashboardRoute,
+  EventReportRoute: EventReportRoute,
   InfraRoute: InfraRoute,
   LoginRoute: LoginRoute,
   TodosRoute: TodosRoute,
