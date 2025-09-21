@@ -5,6 +5,10 @@
 
 declare module "sst" {
   export interface Resource {
+    "MyRouter": {
+      "type": "sst.aws.Router"
+      "url": string
+    }
     "Postgres": {
       "database": string
       "host": string
