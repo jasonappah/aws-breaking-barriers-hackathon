@@ -56,7 +56,7 @@ export default $config({
 			},
 			environment: {
 				VITE_SERVER_URL: server.url,
-				VITE_MAPBOX_TOKEN: mapboxToken.value,
+				VITE_MAPBOX_TOKEN: mapboxToken.name,
 			},
 		});
 		new sst.x.DevCommand("Studio", {
