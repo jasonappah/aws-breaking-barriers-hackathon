@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TodosRouteImport } from './routes/todos'
+import { Route as ResearchSiteRouteImport } from './routes/research-site'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as InfraRouteImport } from './routes/infra'
 import { Route as EventReportRouteImport } from './routes/event-report'
@@ -19,6 +20,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const TodosRoute = TodosRouteImport.update({
   id: '/todos',
   path: '/todos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResearchSiteRoute = ResearchSiteRouteImport.update({
+  id: '/research-site',
+  path: '/research-site',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
@@ -53,6 +59,7 @@ export interface FileRoutesByFullPath {
   '/event-report': typeof EventReportRoute
   '/infra': typeof InfraRoute
   '/login': typeof LoginRoute
+  '/research-site': typeof ResearchSiteRoute
   '/todos': typeof TodosRoute
 }
 export interface FileRoutesByTo {
@@ -61,6 +68,7 @@ export interface FileRoutesByTo {
   '/event-report': typeof EventReportRoute
   '/infra': typeof InfraRoute
   '/login': typeof LoginRoute
+  '/research-site': typeof ResearchSiteRoute
   '/todos': typeof TodosRoute
 }
 export interface FileRoutesById {
@@ -70,6 +78,7 @@ export interface FileRoutesById {
   '/event-report': typeof EventReportRoute
   '/infra': typeof InfraRoute
   '/login': typeof LoginRoute
+  '/research-site': typeof ResearchSiteRoute
   '/todos': typeof TodosRoute
 }
 export interface FileRouteTypes {
@@ -80,9 +89,17 @@ export interface FileRouteTypes {
     | '/event-report'
     | '/infra'
     | '/login'
+    | '/research-site'
     | '/todos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard' | '/event-report' | '/infra' | '/login' | '/todos'
+  to:
+    | '/'
+    | '/dashboard'
+    | '/event-report'
+    | '/infra'
+    | '/login'
+    | '/research-site'
+    | '/todos'
   id:
     | '__root__'
     | '/'
@@ -90,6 +107,7 @@ export interface FileRouteTypes {
     | '/event-report'
     | '/infra'
     | '/login'
+    | '/research-site'
     | '/todos'
   fileRoutesById: FileRoutesById
 }
@@ -99,6 +117,7 @@ export interface RootRouteChildren {
   EventReportRoute: typeof EventReportRoute
   InfraRoute: typeof InfraRoute
   LoginRoute: typeof LoginRoute
+  ResearchSiteRoute: typeof ResearchSiteRoute
   TodosRoute: typeof TodosRoute
 }
 
@@ -109,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/todos'
       fullPath: '/todos'
       preLoaderRoute: typeof TodosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/research-site': {
+      id: '/research-site'
+      path: '/research-site'
+      fullPath: '/research-site'
+      preLoaderRoute: typeof ResearchSiteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login': {
@@ -155,6 +181,7 @@ const rootRouteChildren: RootRouteChildren = {
   EventReportRoute: EventReportRoute,
   InfraRoute: InfraRoute,
   LoginRoute: LoginRoute,
+  ResearchSiteRoute: ResearchSiteRoute,
   TodosRoute: TodosRoute,
 }
 export const routeTree = rootRouteImport
