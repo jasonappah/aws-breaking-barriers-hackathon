@@ -285,6 +285,7 @@ export default function DemoMapCanvas({ crisisMode }: DemoMapCanvasProps) {
 
     const getTooltip = useCallback(({object}: PickingInfo) => {
         if (!object) return null;
+        if (!object.radio) return null;
         return {
             html: `<div style="font: 12px/1.4 system-ui, sans-serif">
                 <div><b>Radio</b>: ${object.radio ?? "—"}</div>
