@@ -4,20 +4,34 @@ import { PlusIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { orpc } from "@/utils/orpc";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
+import type { Site } from "../../../server/src/db/schema/sites";
+import SitesList from "@/components/infra/SitesList";
+import dummySites from "@/data/dummySites";
 
 export const Route = createFileRoute("/infra")({
     component: RouteComponent,
 });
 
+type CrisisData = {
+    brief?: string;
+    summary?: {
+        events?: number;
+        max_severity?: string | number;
+    };
+    generated_at?: string | number | Date;
+    risk?: { features?: unknown[] };
+    heat?: { features?: unknown[] };
+};
+
 function RouteComponent() {
     // Temporarily disable sites query to avoid database errors
     // const sitesQuery = useQuery(orpc.sites.getAll.queryOptions());
     // const sites = sitesQuery.data ?? [];
-    const sites: any[] = []; // Empty array for now
+    const sites: Site[] = dummySites;
     const navigate = useNavigate();
 
     const [isCreateOpen, setIsCreateOpen] = useState(false);
@@ -28,7 +42,7 @@ function RouteComponent() {
     
     // Crisis trigger state
     const [crisisMode, setCrisisMode] = useState(false);
-    const [crisisData, setCrisisData] = useState<any>(null);
+    const [crisisData, setCrisisData] = useState<CrisisData | null>(null);
     const [isLoading, setIsLoading] = useState(false);
 
     // Temporarily disable site creation to avoid database errors
@@ -44,8 +58,8 @@ function RouteComponent() {
         orpc.impactTrigger.triggerCrisis.mutationOptions({
             onSuccess: (data) => {
                 console.log("Crisis trigger result:", data);
-                if (data.success) {
-                    setCrisisData(data.data);
+                if (data.success && data.data) {
+                    setCrisisData(data.data as CrisisData);
                     setCrisisMode(true);
                     toast.success("Crisis triggered successfully! Heatmap generated using Bedrock AI.");
                 } else {
@@ -115,11 +129,7 @@ function RouteComponent() {
                         <PlusIcon />
                     </Button>
                 </div>
-                <div className="rounded border p-1 text-sm">
-                    <div className="h-32 flex items-center justify-center text-muted-foreground">
-                        Sites disabled (database not available)
-                    </div>
-                </div>
+                <SitesList sites={sites} />
             </aside>
             <main className="relative">
                 <div className="absolute inset-0 border-x">
@@ -147,7 +157,7 @@ function RouteComponent() {
                             <div className="text-xs space-y-1">
                                 <p><strong>Events:</strong> {crisisData.summary?.events || 0}</p>
                                 <p><strong>Max Severity:</strong> {crisisData.summary?.max_severity || 'Unknown'}</p>
-                                <p><strong>Generated:</strong> {new Date(crisisData.generated_at).toLocaleString()}</p>
+                                <p><strong>Generated:</strong> {crisisData.generated_at ? new Date(crisisData.generated_at).toLocaleString() : 'Unknown'}</p>
                             </div>
                         </div>
                         <div className="rounded border p-3">

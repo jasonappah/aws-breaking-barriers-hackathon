@@ -4,8 +4,6 @@ import {FirstPersonView, MapView, type PickingInfo} from '@deck.gl/core';
 import {GeoJsonLayer, LineLayer} from '@deck.gl/layers';
 import {ZoomWidget} from '@deck.gl/react';
 import {Map} from 'react-map-gl/mapbox';
-import { orpc } from '@/utils/orpc';
-import { useQuery } from "@tanstack/react-query";
 
 const fileList = [
     "us_data/us_310_split_part1.geojson",
@@ -67,8 +65,8 @@ function App({ crisisMode = false, crisisData }: DeckGlMapCanvasProps = {}) {
             getPointRadius: 4,
             filled: true,
             stroked: true,
-            getFillColor: () => ([255, 140, 0, 120] as any),
-            getLineColor: () => ([255, 140, 0, 200] as any),
+            getFillColor: () => ([0, 100, 255, 180] as any),
+            getLineColor: () => ([0, 100, 255, 180] as any),
             lineWidthScale: 1,
         }));
 
