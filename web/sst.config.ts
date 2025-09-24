@@ -3,8 +3,8 @@ export default $config({
 	app(input) {
 		return {
 			name: "aws-breaking-barriers-hackathon",
-			removal: input?.stage === "production" ? "retain" : "remove",
-			protect: ["production"].includes(input?.stage),
+			removal: input?.stage === "main" ? "retain" : "remove",
+			protect: ["main"].includes(input?.stage),
 			home: "aws",
 			providers: { cloudflare: "6.9.1", aws: {
 				region: "us-east-2",
@@ -12,13 +12,14 @@ export default $config({
 		};
 	},
 	async run() {
+		const prod = $app.stage === "main";
 		const router = new sst.aws.Router("MyRouter", {
-			domain: {
+			domain: prod ? {
 				name: "swarm.jasonaa.me",
 				aliases: ["*.swarm.jasonaa.me"],
 				dns: sst.cloudflare.dns(),
                 cert: "arn:aws:acm:us-east-1:748325219098:certificate/e8761621-1692-4b35-ba37-8dc66c0dfe46"
-			},
+			} : undefined,
 		});
 		const vpc = new sst.aws.Vpc("Vpc", { bastion: true, nat: "ec2" });
 		const rds = new sst.aws.Postgres("Postgres", {
@@ -32,12 +33,12 @@ export default $config({
 			},
 		});
 		const server = new sst.aws.Function("server", {
-			url: {
+			url: prod ? {
 				router: {
 					instance: router,
 					domain: "api.swarm.jasonaa.me",
 				},
-			},
+			} : true,
 			handler: "apps/server/src/lambda.handler",
 			link: [rds],
 			vpc,
@@ -51,10 +52,10 @@ export default $config({
 				command: "npm run build",
 				output: "dist",
 			},
-			router: {
+			router: prod ? {
 				instance: router,
 				domain: "swarm.jasonaa.me",
-			},
+			} : undefined,
 			environment: {
 				VITE_SERVER_URL: server.url,
 				VITE_MAPBOX_TOKEN: new sst.Secret("MapBoxToken").value,
@@ -64,6 +65,7 @@ export default $config({
 			link: [rds],
 			dev: {
 				command: "npx drizzle-kit studio",
+				directory: "apps/server",
 			},
 		});
 	},
