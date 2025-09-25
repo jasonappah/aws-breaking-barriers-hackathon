@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import type { Site } from "../../../../server/src/db/schema/sites";
 import { Separator } from "@/components/ui/separator";
+import { Link } from "@tanstack/react-router";
 
 interface SitesListProps {
     sites: Site[];
@@ -14,12 +15,14 @@ export default function SitesList({ sites, emptyText = "No sites found" }: Sites
                 {sites.length === 0 ? emptyText : undefined}
 
                 {sites.length > 0 && sites.map((site) => (
-                    <Fragment key={site.id}>
+                    <Link key={site.id} to={'/research-site/$siteId'} params={{
+                        siteId: site.id.toString()
+                    }}>
                         <div className="text-sm px-2">
                             {site.name}
                         </div>
                         <Separator className="my-2" />
-                    </Fragment>
+                    </Link>
                 ))}
             </div>
         </div>
